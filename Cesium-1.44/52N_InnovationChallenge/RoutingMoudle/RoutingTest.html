@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> 
+    		R3 Routing Test
+  		</title>
+
+	</head>
+
+	<body>
+		<!-- 加入Polygon GeoJSON -->
+		<div>
+			Start: <input type="text" value="R3-203" id="start"><br>
+			Obstacle: <input type="text" value="Right-Stairs-1-2" id="obstacle">
+			<button onclick="AddObstacle()">Add Obstacle</button>
+			<br>
+			<button onclick="routing()">Routing</button>
+
+		</div>
+
+		<div id="obstacleTable">
+		</div>
+
+		<div>
+			<img src="R3-1F.jpg" width="600"><br>
+			<img src="R3-2F.jpg" width="600">
+		</div>
+
+		<div id='result'> </div>
+		<script src="R3Route.js"></script>
+		<script src="Routing.js"></script>
+	</body>
+
+</html>
