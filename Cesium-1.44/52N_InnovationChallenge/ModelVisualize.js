@@ -117,43 +117,69 @@ var R32F = Cesium.GeoJsonDataSource.load('GeoJSON/R3-2F-Polygon.geojson');
     });
 
 
-var checkbox1F = document.getElementById('R31Fcheck');
-checkbox1F.addEventListener('change', function() {
-    // Checkbox state changed.
-    if (checkbox1F.checked) {
-        // Show if not shown.
-        R31F.show = true;
-        }
-     else {
-        // Hide if currently shown.
-        R31F.show = false;
-    }
-}, false);
 
-var checkbox2F = document.getElementById('R32Fcheck');
-checkbox2F.addEventListener('change', function() {
-    // Checkbox state changed.
-    if (checkbox2F.checked) {
-        // Show if not shown.
-        R32F.show = true;
-        }
-     else {
-        // Hide if currently shown.
-        R32F.show = false;
-    }
-}, false);
+// var checkbox = document.getElementById('R32Fcheck');
+// checkbox.addEventListener('change', function() {
+//     // Checkbox state changed.
+//     if (checkbox.checked) {
+//         // Show if not shown.
+//         if (!viewer.dataSources.contains(R32F)) {
+//             viewer.dataSources.add(R32F);
+//             viewer.zoomTo(R32F);
+//         }
+//     } else {
+//         // Hide if currently shown.
+//         if (viewer.dataSources.contains(R32F)) {
+//             viewer.dataSources.remove(R32F);
+//         }
+//     }
+// }, false);
+
+// checkbox.addEventListener('change', function(){
+// 	if (!checkbox.checked){
+// 		if (!viewer.dataSources.contains(R32F)){
+// 			console.log("fail");
+// 		}else{
+// 			viewer.dataSources.remove(R32F);
+// 			console.log("remove");
+// 		}
+// 	}else{
+// 		if (!viewer.dataSources.contains(R32F)){
+// 			viewer.dataSources.add(R32F);
+// 		}
+// 	}
+// });
 
 
 
-//滑鼠右鍵點擊事件
-var handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
 
-	handler.setInputAction(function(click) {
-	    var pickedObject = scene.pick(click.position);
-	    if (Cesium.defined(pickedObject)) {
-	    	alert("ID = "+pickedObject.id.properties.fid);
-	    	var realID = parseInt(pickedObject.id.properties.fid);
-	    	var Thing = pickedObject.id.properties.Thing._value;
-	    	console.log(Thing)
-	    }
-	}, Cesium.ScreenSpaceEventType.RIGHT_CLICK);
+
+
+
+// var checkbox1F = document.getElementById('R31Fcheck');
+// checkbox1F.addEventListener('change', function() {
+//     // Checkbox state changed.
+//     if (checkbox1F.checked) {
+//         // Show if not shown.
+//         R31F.show = true;
+//         }
+//      else {
+//         // Hide if currently shown.
+//         R31F.show = false;
+//     }
+// }, false);
+
+// var checkbox2F = document.getElementById('R32Fcheck');
+// checkbox2F.addEventListener('change', function() {
+//     // Checkbox state changed.
+//     if (checkbox2F.checked) {
+//         // Show if not shown.
+//         R32F.show = true;
+//         }
+//      else {
+//         // Hide if currently shown.
+//         R32F.show = false;
+//     }
+// }, false);
+
+
