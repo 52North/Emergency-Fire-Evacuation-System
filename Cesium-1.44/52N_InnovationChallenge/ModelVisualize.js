@@ -5,7 +5,7 @@ var viewer = new Cesium.Viewer('cesiumContainer', {
 
 var scene = viewer.scene;
 
-// var R31F = Cesium.GeoJsonDataSource.load('R3-1F-Polygon.geojson');
+// var R31F = Cesium.GeoJsonDataSource.load('GeoJSON/R3-1F-Polygon.geojson');
 
 // R31F.then(
 //     function(dataSource) {
