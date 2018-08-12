@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
   <title>Model Visualization</title>
   <script src="../Build/Cesium/Cesium.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 
   <style>
       @import url(../Build/Cesium/Widgets/widgets.css);
@@ -26,22 +27,31 @@
         }            
   </style>
 </head>
-<body>
+<body onload="updateObservations()">
   <div id="cesiumContainer">
       
   </div>
 
     <div class="toolbar-left" id="toolbar">
-        Start: <input type="text" id="start" size="15" value="R3-203"><br>
-        Obstacle: <input type="text" id="obstacle" size="15" value="Right-Stairs-2-1"><nbr>
-
-      <button onclick="AddObstacle()">
-        Add Obstacle
-      </button><br>
-
+        Start: <input type="text" id="start" size="5" value="R3-203"><nbr>
       <button onclick="routing()">
         Routing
       </button><br>
+
+
+        Thing ID: <input type="text" id="ThingID" size="1" value="100"><nbr>
+        Temperature: <input type="text" id="temperature" size="1" value="38"><nbr>
+
+<!--         Obstacle: <input type="text" id="obstacle" size="15" value="Right-Stairs-2-1"><nbr>
+      <button onclick="AddObstacle()">
+        Add Obstacle
+      </button><br> -->
+
+      <button onclick="AddObstacleObservations()">
+        Update Observation
+      </button><br>      
+
+
 
       <input type="checkbox" id="R31Fcheck" value="R31F" checked>R3 1F<br>
       <input type="checkbox" id="R32Fcheck" value="R32F" checked>R3 2F<br>
@@ -51,7 +61,10 @@
   <script type="text/javascript" src ="./ModelVisualize.js"></script>
   <script type="text/javascript" src="RoutingMoudle/R3Route.js"></script>  
   <script type="text/javascript" src="RoutingMoudle/Routing.js"></script>
-<!--   <script type="text/javascript" src ="RoutingMoudle/RoutingResult.js"></script>  
- -->  <script type="text/javascript" src="SensorService/getSensorObservation.js"></script> 
+<!--   <script type="text/javascript" src ="RoutingMoudle/RoutingResult.js"></script>   -->
+  <script type="text/javascript" src="GeoJSON/R3_point_GeoJSON.js"></script> 
+  <script type="text/javascript" src="SensorService/getSensorObservation.js"></script> 
 
 </html>
+
+
