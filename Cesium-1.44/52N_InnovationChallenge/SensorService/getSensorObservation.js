@@ -21,7 +21,7 @@ function GETthing(id){
 	      var responseText = this.responseText;
 	      var responseJSON = JSON.parse(responseText);
 	      var temperature = responseJSON.value[0].result;
-	      if(temperature>30){
+	      if(temperature > 60){
 	      		console.log(temperature);
 	      		console.log(id+" is Not Safe!!");
 	      		AddObstacle(id);
@@ -62,6 +62,7 @@ function findObstacleCoordinates(obstacle){
 
     var ObstacleName = NodeCoordinates.properties.Name;
     R3route[ObstacleName] = {};
+    EscapeSling[ObstacleName] = {};
     console.log("Finish add Obstacle point!!");
     // console.log(locationOfObstacle);
     ObstacleVisualize(locationOfObstacle)
@@ -130,7 +131,9 @@ function AddObstacleObservations(){
 		  // "Datastream":{"@iot.id":id}
 		});
 
-		POSTdata(id,json);		
+		POSTdata(id,json);
+
+	routing();		
 }
 
 
