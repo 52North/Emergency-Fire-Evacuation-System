@@ -1,0 +1,49 @@
+{
+  "request": "InsertObservation",
+  "service": "SOS",
+  "version": "2.0.0",
+  "offering": "123",
+  "observation": {
+    "identifier": {
+      "value": "o1",
+      "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+    },
+    "type": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+    "procedure": "test1",
+    "observedProperty": "ogc:def:phenomenon:OGC:1.0.30:temperature",
+    "featureOfInterest": {
+      "identifier": {
+        "value": "http://www.52north.org/test/featureOfInterest/9",
+        "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+      },
+      "name": [
+        {
+          "value": "52°North",
+          "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+        }
+      ],
+      "sampledFeature": [
+        "http://www.52north.org/test/featureOfInterest/world"
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.1873515,
+          24.9679737
+        ],
+        "crs": {
+          "type": "name",
+          "properties": {
+            "name": "EPSG:4326"
+          }
+        }
+      }
+    },
+    "phenomenonTime": "2018-08-12T17:45:15+00:00",
+    "resultTime": "2012-11-19T17:45:15+00:00",
+    "result": {
+      "uom": "degree",
+      "value": 25
+    }
+  }
+}
