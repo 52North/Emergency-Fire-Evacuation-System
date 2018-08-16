@@ -155,6 +155,8 @@ function updateObservations(){
 	}		
 }
 
+
+//SensorThings API
 function POSTdata(id,json){
         $.ajax({
             url: "http://140.115.111.128:8080/STA/v1.0/Datastreams("+id+")/Observations",
@@ -171,3 +173,4 @@ function POSTdata(id,json){
         });
     }
 
+ 
