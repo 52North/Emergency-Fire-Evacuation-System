@@ -43,50 +43,47 @@ var response;
 // };
 	
 var observation = {
-				  "request": "InsertObservation",
-				  "service": "SOS",
-				  "version": "2.0.0",
-				  "offering": "1",
-				  "observation": {    
-				    "type": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
-				    "procedure": "DHT22_Sensor",
-				    "observedProperty": "Temperature_DHT22",
-				    "featureOfInterest": {
-				      "identifier": {
-				        "value": "R3-118",
-				        "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
-				      },
-				      "name": [
-				        {
-				          "value": "R3-118",
-				          "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
-				        }
-				      ],
-				      "sampledFeature": [
-				        "DHT22_Parent"
-				      ],
-				      "geometry": {
-				        "type": "Point",
-				        "coordinates": [
-				          121.18747912624934,
-				          24.967953892881198
-				        ],
-				        "crs": {
-				          "type": "name",
-				          "properties": {
-				            "name": "EPSG:4326"
-				          }
-				        }
-				      }
-				    },
-				    "phenomenonTime": "2014-06-13T00:30:00+08:00",
-				    "resultTime": "2014-06-13T00:30:00+08:00",
-				    "result": {
-				      "uom": "Celsius",
-				      "value": 38
-				    }
-				  }
-				};
+			  "request": "InsertObservation",
+			  "service": "SOS",
+			  "version": "2.0.0",
+			  "offering": 5,
+			  "observation": {    
+			    "type": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+			    "procedure": "DHT22_Sensor",
+			    "observedProperty": "Temperature_DHT22",
+			    "featureOfInterest": {
+			      "identifier": {
+			        "value": "R31111",
+			        "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+			      },
+			      "name": [
+			        {
+			          "value": "R31111",
+			          "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+			        }
+			      ],
+			      "geometry": {
+			        "type": "Point",
+			        "coordinates": [
+			          0,
+			          0
+			        ],
+			        "crs": {
+			          "type": "name",
+			          "properties": {
+			            "name": "EPSG:4326"
+			          }
+			        }
+			      }
+			    },
+			    "phenomenonTime": "2014-06-13T00:30:00+08:00",
+			    "resultTime": "2014-06-13T00:30:00+08:00",
+			    "result": {
+			      "uom": "Celsius",
+			      "value": 50
+			    }
+			  }
+			};
 
 				$.ajax({
 				    url:"http://localhost:8080/52n-sos-webapp/service",
@@ -96,7 +93,6 @@ var observation = {
 				    acception: "application/json",
 				    success: function(data){
 				        console.log(data);
-				        response = data;
 				    },
 				    error: function(response, status){
 				        console.log(response);

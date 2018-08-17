@@ -922,7 +922,7 @@ var R3_point = {
     {
       "type": "Feature",
       "properties": {
-        "id": 56,
+        "id": 55,
         "Name": "R3-230",
         "Type": "Room"
       },
