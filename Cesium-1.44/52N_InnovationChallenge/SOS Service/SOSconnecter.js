@@ -2,20 +2,22 @@
 //Simulate the default observations
 var search;
 
+//when user open the page, insert the default observation result value to each offering 
 function updateObservations(){
 	// for(var i=1;i<R3_point.features.length+1;i++){
-		var i = 1;
+		var i = 1; //use first node to test
 		search = i;
 		var findNode = R3_point.features.find(findFeatureOfInterestNode);
 		var featureOfInterest = findNode.properties.Name;
 		var geometry = findNode.geometry;
 
+		// do insert observation
 		insertObservation(i,featureOfInterest,geometry,30); //default temperature is 30
 	// }
 };
 
 
-//用來找Results裡面各的node對應的feature
+//use id to find the featureOfInterent name; 
 function findFeatureOfInterestNode(features){
   return features.properties.id === search; 
 };
@@ -142,8 +144,7 @@ function insertObservation(offeringID,featureOfInterest,geometry,temperatureResu
 
 
 
-			var data = JSON.stringify(defaultObservation);
-			var p = JSON.parse(data);
+			// var data = JSON.stringify(defaultObservation);
 
 			// console.log(defaultObservationString)
 
@@ -152,7 +153,7 @@ function insertObservation(offeringID,featureOfInterest,geometry,temperatureResu
 			$.ajax({
 			    url:"http://localhost:8080/52n-sos-webapp/service",
 			    type: "POST",
-			    data: JSON.stringify(p),
+			    data: JSON.stringify(defaultObservation),
 			    contentType: "application/json",
 			    acception: "application/json",
 			    success: function(data){
