@@ -26,27 +26,27 @@ var response;
 
 		function POSTdata(){
 
-var getObservation = {
-  "request": "GetObservation",
-  "service": "SOS",
-  "version": "2.0.0",
-  "procedure": [
-    "DHT22_Sensor"
-  ],
-  "offering": [
-    "R3-118",
-    "R3-118-1"
-  ],
-  "observedProperty": [
-    "Temperature_DHT22"
-  ]
-};
+// var getObservation = {
+//   "request": "GetObservation",
+//   "service": "SOS",
+//   "version": "2.0.0",
+//   "procedure": [
+//     "DHT22_Sensor"
+//   ],
+//   "offering": [
+//     "R3-118",
+//     "R3-118-1"
+//   ],
+//   "observedProperty": [
+//     "Temperature_DHT22"
+//   ]
+// };
 	
 var observation = {
 				  "request": "InsertObservation",
 				  "service": "SOS",
 				  "version": "2.0.0",
-				  "offering": "R3-118",
+				  "offering": "1",
 				  "observation": {    
 				    "type": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
 				    "procedure": "DHT22_Sensor",
@@ -79,8 +79,8 @@ var observation = {
 				        }
 				      }
 				    },
-				    "phenomenonTime": "2018-06-13T00:30:00+08:00",
-				    "resultTime": "2018-06-13T00:30:00+08:00",
+				    "phenomenonTime": "2014-06-13T00:30:00+08:00",
+				    "resultTime": "2014-06-13T00:30:00+08:00",
 				    "result": {
 				      "uom": "Celsius",
 				      "value": 38
