@@ -4,7 +4,7 @@ var search;
 
 //when user open the page, insert the default observation result value to each offering 
 function updateObservations(){
-	for(var i=1;i<111;i++){
+	for(var i=1;i<R3_point.features.length+1;i++){
 		// var i = 1 //for test
 		search = i;
 		var findNode = R3_point.features.find(findFeatureOfInterestNode);
@@ -119,8 +119,102 @@ function AddObstacleObservation(){
 		console.log(geometry);
 		console.log(temperatureResult)
 
-
 		// // do insert observation
 		insertObservation(offeringID,featureOfInterest,geometry,temperatureResult); 	
+}
 
+
+
+
+
+function checkObservations(){
+	for(var i=1; i<R3_point.features.length+1; i++){
+		console.log(i);
+		getObservationsByOffering(i);
+	}
+}
+
+
+function getObservationsByOffering(offeringID){
+
+var getObservation = {
+		  "request": "GetObservation",
+		  "service": "SOS",
+		  "version": "2.0.0",
+		  "offering": [
+		    offeringID.toString()
+		  ],
+		  "observedProperty": [
+		    "Temperature_DHT22"
+		  ]
+		};
+
+			$.ajax({
+			    url:"http://localhost:8080/52n-sos-webapp/service",
+			    type: "POST",
+			    data: JSON.stringify(getObservation),
+			    contentType: "application/json",
+			    acception: "application/json",
+			    success: function(data){
+			        console.log(data);
+			        var latestObservationResult = data.observations[data.observations.length-1].result.value;
+			        if(latestObservationResult>60){
+			        	var obstacleName = data.observations[data.observations.length-1].featureOfInterest.name.value;
+			        	var obstacleGeomatry = data.observations[data.observations.length-1].featureOfInterest.geometry;
+			        	AddObstacle(obstacleName);
+			        }
+			    },
+			    error: function(response, status){
+			        console.log(response);
+			        console.log(status);
+			    }
+			});
+	}
+
+
+var searchFeatureOfInterestNode;
+
+function findFeatureOfInterestByName(features){
+  return features.properties.Name === searchFeatureOfInterestNode; 
+};
+
+
+function AddObstacle(name){
+	searchFeatureOfInterestNode = name;
+	var obstacleObj = R3_point.features.find(findFeatureOfInterestByName);  // find featureOfInterest by name
+	var obstacle = obstacleObj.properties.Name;
+	var positionOfObstacle = obstacleObj.geometry.coordinates;
+	R3route[obstacle] = {}; // Let the obstacle node to {}
+	EscapeSling[obstacle] = {};
+    console.log("Finish add Obstacle point!!");
+    ObstacleVisualize(positionOfObstacle);
+}
+
+
+// Add Obstacle point
+function ObstacleVisualize(positionOfObstacle){
+	var Obstacle = [{
+	    "id" : "document",
+	    "name" : "CZML Point",
+	    "version" : "1.0"
+	}, {
+	    "id" : "Obstacle",
+	    "name": "Obstacle",
+	    "position" : {
+	        "cartographicDegrees" : positionOfObstacle
+	    },
+	    "point": {
+	        "color": {
+	            "rgba": [255, 255, 255, 255]
+	        },
+	        "outlineColor": {
+	            "rgba": [255, 0, 0, 255]
+	        },
+	        "outlineWidth" : 4,
+	        "pixelSize": 20
+	    }
+	}];
+
+	var dataSourcePromise = Cesium.CzmlDataSource.load(Obstacle);
+	viewer.dataSources.add(dataSourcePromise);
 }

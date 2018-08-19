@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <title>Model Visualization</title>
+  <title>Emergency Fire Evacuation System</title>
   <script src="../Build/Cesium/Cesium.js"></script>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 
@@ -39,7 +39,7 @@
       </button><br>
 
 
-        Thing ID: <input type="text" id="ThingID" size="3" value="100"><nbr>
+        Offering ID: <input type="text" id="OfferingID" size="3" value="100"><nbr>
         Temperature: <input type="text" id="temperature" size="3" value="70"><nbr>
 
 <!--         Obstacle: <input type="text" id="obstacle" size="15" value="Right-Stairs-2-1"><nbr>
@@ -47,8 +47,8 @@
         Add Obstacle
       </button><br> -->
 
-      <button onclick="AddObstacleObservations()">
-        Update Observation
+      <button onclick="AddObstacleObservation()">
+        Insert Observation
       </button><br>      
 
 
@@ -60,10 +60,10 @@
 
   <script type="text/javascript" src ="./ModelVisualize.js"></script>
   <script type="text/javascript" src="RoutingMoudle/R3Route.js"></script>  
-  <script type="text/javascript" src="RoutingMoudle/Routing.js"></script>
+  <script type="text/javascript" src="RoutingMoudle/RoutingSOS.js"></script>
 <!--   <script type="text/javascript" src ="RoutingMoudle/RoutingResult.js"></script>   -->
   <script type="text/javascript" src="GeoJSON/R3_point_GeoJSON.js"></script> 
-  <script type="text/javascript" src="SensorService/getSensorObservation.js"></script> 
+  <script type="text/javascript" src="SOS Service/SOSconnecter.js"></script> 
 
 </html>
 
