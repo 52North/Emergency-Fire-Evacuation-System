@@ -40,14 +40,14 @@ function insertObservation(offeringID,featureOfInterest,geometry,temperatureResu
 				  "request": "InsertObservation",
 				  "service": "SOS",
 				  "version": "2.0.0",
-				  "offering": offeringID.toString(),  //offeringID.toString()
+				  "offering": "Offering_DHT22",  //offeringID.toString()
 				  "observation": {    
 				    "type": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
 				    "procedure": "DHT22_Sensor",
 				    "observedProperty": "Temperature_DHT22",
 				    "featureOfInterest": {
 				      "identifier": {
-				        "value": featureOfInterest.toString(),  //featureOfInterest.toString()
+				        "value": offeringID.toString(),  //featureOfInterest.toString()
 				        "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
 				      },
 				      "name": [
@@ -82,8 +82,51 @@ function insertObservation(offeringID,featureOfInterest,geometry,temperatureResu
 				  }
 				};
 
+// {
+//   "request": "InsertObservation",
+//   "service": "SOS",
+//   "version": "2.0.0",
+//   "offering": "1",
+// 				  "observation": {    
+// 				    "type": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+// 				    "procedure": "DHT22_Sensor",
+// 				    "observedProperty": "Temperature_DHT22",
+// 				    "featureOfInterest": {
+// 				      "identifier": {
+// 				        "value": "1",  
+// 				        "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+// 				      },
+// 				      "name": [
+// 				        {
+//                   "value": "R3-115", 
+// 				          "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+// 				        }
+// 				      ],
+// 				      "geometry": {
+// 				        "type": "Point",
+// 				        "coordinates": [
+// 				          0,  
+// 				          0  
+// 				        ],
+// 				        "crs": {
+// 				          "type": "name",
+// 				          "properties": {
+// 				            "name": "EPSG:4326"
+// 				          }
+// 				        }
+// 				      }
+// 				    },
+//             "phenomenonTime": "1994-02-01T00:00:00+08:00", 
+// 				    "resultTime": "1994-02-01T00:00:00+08:00",  
+// 				    "result": {
+// 				      "uom": "Celsius",
+// 				      "value": 25 
+// 				    }
+// 				  }
+// }
+
 		$.ajax({
-		    url:"http://localhost:8080/52n-sos-webapp/service",
+		    url:"http://localhost:8080/52n-sos/service",
 		    type: "POST",
 		    data: JSON.stringify(defaultObservation),
 		    contentType: "application/json",
@@ -128,39 +171,88 @@ function AddObstacleObservation(){
 
 
 function checkObservations(){
-	for(var i=1; i<R3_point.features.length+1; i++){
+	for(var i=1; i<111; i++){
+		// var i=1
 		console.log(i);
 		getObservationsByOffering(i);
 	}
 }
 
 
-function getObservationsByOffering(offeringID){
+function getObservationsByOffering(featureOfInterestID){
 
-var getObservation = {
+
+
+// var getObservation = {
+// 		  "request": "GetObservation",
+// 		  "service": "SOS",
+// 		  "version": "2.0.0",
+// 		  "offering": [
+// 		    offeringID.toString()
+// 		  ],
+// 		  "observedProperty": [
+// 		    "Temperature_DHT22"
+// 		  ]
+// 		};
+
+// var getLastestObservation = {
+// 		  "request": "GetObservation",
+// 		  "service": "SOS",
+// 		  "version": "2.0.0",
+// 		  "procedure": [
+// 		    "DHT22_Sensor"
+// 		  ],
+// 		  "featureOfInterest": [
+// 		    featureOfInterestID.toString()
+// 		  ],
+// 		   "temporalFilter": {
+// 		    "equals": {
+// 		      "ref": "om:phenomenonTime",
+// 		      "value": "first"
+// 		    }
+// 		  }
+// 		}
+
+
+var getLastestObservation = {
 		  "request": "GetObservation",
 		  "service": "SOS",
 		  "version": "2.0.0",
+		  "procedure": [
+		    "DHT22_Sensor"
+		  ],
 		  "offering": [
-		    offeringID.toString()
+		    "Offering_DHT22"
 		  ],
 		  "observedProperty": [
 		    "Temperature_DHT22"
-		  ]
-		};
+		  ],
+		  "featureOfInterest": [
+				featureOfInterestID.toString()
+		  ],
+		  "temporalFilter": {
+				    "equals": {
+				      "ref": "om:phenomenonTime",
+				      "value": "latest"
+				    }
+				  }
+}
 
 			$.ajax({
-			    url:"http://localhost:8080/52n-sos-webapp/service",
+			    url:"http://localhost:8080/52n-sos/service",
 			    type: "POST",
-			    data: JSON.stringify(getObservation),
+			    data: JSON.stringify(getLastestObservation),
 			    contentType: "application/json",
 			    acception: "application/json",
 			    success: function(data){
 			        console.log(data);
-			        var latestObservationResult = data.observations[data.observations.length-1].result.value;
+			        // var latestObservationResult = data.observations[data.observations.length-1].result.value;
+			        var latestObservationResult = data.observations[0].result.value;
 			        if(latestObservationResult>60){
-			        	var obstacleName = data.observations[data.observations.length-1].featureOfInterest.name.value;
-			        	var obstacleGeomatry = data.observations[data.observations.length-1].featureOfInterest.geometry;
+			        	// var obstacleName = data.observations[data.observations.length-1].featureOfInterest.name.value;
+			        	// var obstacleGeomatry = data.observations[data.observations.length-1].featureOfInterest.geometry;
+			        	var obstacleName = data.observations[0].featureOfInterest.name.value;
+			        	var obstacleGeomatry = data.observations[0].featureOfInterest.geometry;			        	
 			        	AddObstacle(obstacleName);
 			        }
 			    },
