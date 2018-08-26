@@ -12,7 +12,26 @@ function updateObservations(){
 		var geometry = findNode.geometry;
 		console.log(i);
 		// do insert observation
-		insertObservation(i,featureOfInterest,geometry,30); //default temperature is 30
+			var DHT22Information = {
+				"offering":"Offering_DHT22",
+				"procedure":"DHT22_Sensor",
+				"observedProperty": "Temperature_DHT22",
+				"sampledFeature": "DHT22_Parent",
+				"uom": "Celsius"
+			};		
+
+		insertObservation(i,featureOfInterest,geometry,30,DHT22Information); //default temperature is 30
+
+			var EN54Information = {
+				"offering":"Offering_EN54-7",
+				"procedure":"EN54-7",
+				"observedProperty": "obscuration_rate",
+				"sampledFeature": "EN54-7_Parent",
+				"uom": "Percentage"
+			};
+
+		insertObservation(i,featureOfInterest,geometry,2.5,EN54Information); //default obscuration_rate is 2.5
+
 	}
 };
 
@@ -22,7 +41,7 @@ function findFeatureOfInterestNode(features){
   return features.properties.id === search; 
 };
 
-function insertObservation(offeringID,featureOfInterest,geometry,temperatureResult){
+function insertObservation(offeringID,featureOfInterest,geometry,value,sensorInformation){
 
 	var TimeNow= new Date();
 	var yyyy = TimeNow.toLocaleDateString().slice(0,4)
@@ -40,11 +59,11 @@ function insertObservation(offeringID,featureOfInterest,geometry,temperatureResu
 				  "request": "InsertObservation",
 				  "service": "SOS",
 				  "version": "2.0.0",
-				  "offering": "Offering_DHT22",  //offeringID.toString()
+				  "offering": sensorInformation.offering.toString(),  //offeringID.toString()
 				  "observation": {    
 				    "type": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
-				    "procedure": "DHT22_Sensor",
-				    "observedProperty": "Temperature_DHT22",
+				    "procedure": sensorInformation.procedure.toString(),
+				    "observedProperty": sensorInformation.observedProperty.toString(),
 				    "featureOfInterest": {
 				      "identifier": {
 				        "value": offeringID.toString(),  //featureOfInterest.toString()
@@ -57,7 +76,7 @@ function insertObservation(offeringID,featureOfInterest,geometry,temperatureResu
 				        }
 				      ],
 				      "sampledFeature": [
-				        "DHT22_Parent"
+				        sensorInformation.sampledFeature.toString()
 				      ],
 				      "geometry": {
 				        "type": "Point",
@@ -76,8 +95,8 @@ function insertObservation(offeringID,featureOfInterest,geometry,temperatureResu
 				    "phenomenonTime": time, //一定要是都是兩位數的時間格式(yyyy-mm-ddThh:mm:ss+08:00)
 				    "resultTime": time,  //一定要是都是兩位數的時間格式(yyyy-mm-ddThh:mm:ss+08:00)
 				    "result": {
-				      "uom": "Celsius",
-				      "value": parseInt(temperatureResult) //一定要是數字，不能為字串
+				      "uom": sensorInformation.uom.toString(),
+				      "value": parseInt(value) //一定要是數字，不能為字串
 				    }
 				  }
 				};
@@ -148,24 +167,60 @@ function findObstacleNode(features){
   return features.properties.id === search2; 
 };
 
-function AddObstacleObservation(){
-	var offeringID = document.getElementById("OfferingID").value;
+function AddTemperatureObservation(){
+	var OfferingID_T = document.getElementById("OfferingID_T").value;
 	var temperatureResult = document.getElementById("temperature").value;
 
-		search2 = parseInt(offeringID);
+		search2 = parseInt(OfferingID_T);
 		var findNode = R3_point.features.find(findObstacleNode);
 		var featureOfInterest = findNode.properties.Name;
 		var geometry = findNode.geometry;
 
-		console.log(offeringID);
+		console.log(OfferingID_T);
 		console.log(featureOfInterest);
 		console.log(geometry);
 		console.log(temperatureResult)
 
+		var DHT22Information = {
+			"offering":"Offering_DHT22",
+			"procedure":"DHT22_Sensor",
+			"observedProperty": "Temperature_DHT22",
+			"sampledFeature": "DHT22_Parent",
+			"uom": "Celsius"
+		}
+
 		// // do insert observation
-		insertObservation(offeringID,featureOfInterest,geometry,temperatureResult); 	
+		insertObservation(OfferingID_T,featureOfInterest,geometry,temperatureResult,DHT22Information); 	
 }
 
+
+
+function AddSmokeObservation(){
+	var OfferingID_O = document.getElementById("OfferingID_O").value;
+	var ObscurationRateResult = document.getElementById("ObscurationRate").value;
+
+		search2 = parseInt(OfferingID_O);
+		var findNode = R3_point.features.find(findObstacleNode);
+		var featureOfInterest = findNode.properties.Name;
+		var geometry = findNode.geometry;
+
+		console.log(OfferingID_O);
+		console.log(featureOfInterest);
+		console.log(geometry);
+		console.log(ObscurationRateResult)
+
+
+		var EN54Information = {
+			"offering":"Offering_EN54-7",
+			"procedure":"EN54-7",
+			"observedProperty": "obscuration_rate",
+			"sampledFeature": "EN54-7_Parent",
+			"uom": "Percentage"
+		};
+
+		// // do insert observation
+		insertObservation(OfferingID_O,featureOfInterest,geometry,ObscurationRateResult,EN54Information); 	
+}
 
 
 
@@ -175,6 +230,7 @@ function checkObservations(){
 		// var i=1
 		console.log(i);
 		getObservationsByOffering(i);
+		getSmokeObservations(i);
 	}
 }
 
@@ -218,14 +274,13 @@ var getLastestObservation = {
 		  "request": "GetObservation",
 		  "service": "SOS",
 		  "version": "2.0.0",
-		  "procedure": [
-		    "DHT22_Sensor"
-		  ],
 		  "offering": [
-		    "Offering_DHT22"
+		    "Offering_DHT22",
+        	// "Offering_EN54-7"
 		  ],
 		  "observedProperty": [
-		    "Temperature_DHT22"
+		    "Temperature_DHT22",
+        	// "obscuration_rate"
 		  ],
 		  "featureOfInterest": [
 				featureOfInterestID.toString()
@@ -246,9 +301,77 @@ var getLastestObservation = {
 			    acception: "application/json",
 			    success: function(data){
 			        console.log(data);
-			        // var latestObservationResult = data.observations[data.observations.length-1].result.value;
-			        var latestObservationResult = data.observations[0].result.value;
-			        if(latestObservationResult>60){
+			        var latestTemperatureResult = data.observations[0].result.value;
+			        // var latestSmokeDensityResult = data.observations[0].result.value;
+
+			        if(latestTemperatureResult>60){
+			        	// var obstacleName = data.observations[data.observations.length-1].featureOfInterest.name.value;
+			        	// var obstacleGeomatry = data.observations[data.observations.length-1].featureOfInterest.geometry;
+			        	var obstacleName = data.observations[0].featureOfInterest.name.value;
+			        	var obstacleGeomatry = data.observations[0].featureOfInterest.geometry;			        	
+			        	AddObstacle(obstacleName);
+			        }
+
+
+			       // if(latestTemperatureResult > 60 && latestSmokeDensityResult < 22.5){
+			       //  	var obstacleName = data.observations[1].featureOfInterest.name.value;
+			       //  	var obstacleGeomatry = data.observations[1].featureOfInterest.geometry;			        	
+			       //  	AddObstacle(obstacleName);
+			       // }else if(latestTemperatureResult < 60 && latestSmokeDensityResult > 22.5){
+			       //  	var obstacleName = data.observations[0].featureOfInterest.name.value;
+			       //  	var obstacleGeomatry = data.observations[0].featureOfInterest.geometry;			        	
+			       //  	AddObstacle(obstacleName);			       	
+			       // }else if(latestTemperatureResult >60 && latestSmokeDensityResult > 22.5){
+			       //  	var obstacleName = data.observations[0].featureOfInterest.name.value;
+			       //  	var obstacleGeomatry = data.observations[0].featureOfInterest.geometry;			        	
+			       //  	AddObstacle(obstacleName);
+			       // }
+			    },
+			    error: function(response, status){
+			        console.log(response);
+			        console.log(status);
+			    }
+			});
+	}
+
+
+function getSmokeObservations(featureOfInterestID){
+
+var getLastestObservation = {
+		  "request": "GetObservation",
+		  "service": "SOS",
+		  "version": "2.0.0",
+		  "offering": [
+		    // "Offering_DHT22",
+        	"Offering_EN54-7"
+		  ],
+		  "observedProperty": [
+		    // "Temperature_DHT22",
+        	"obscuration_rate"
+		  ],
+		  "featureOfInterest": [
+				featureOfInterestID.toString()
+		  ],
+		  "temporalFilter": {
+				    "equals": {
+				      "ref": "om:phenomenonTime",
+				      "value": "latest"
+				    }
+				  }
+}
+
+			$.ajax({
+			    url:"http://localhost:8080/52n-sos/service",
+			    type: "POST",
+			    data: JSON.stringify(getLastestObservation),
+			    contentType: "application/json",
+			    acception: "application/json",
+			    success: function(data){
+			        console.log(data);
+			        var latestSomkeResult = data.observations[0].result.value;
+			        // var latestSmokeDensityResult = data.observations[0].result.value;
+
+			        if(latestSomkeResult>22.5){
 			        	// var obstacleName = data.observations[data.observations.length-1].featureOfInterest.name.value;
 			        	// var obstacleGeomatry = data.observations[data.observations.length-1].featureOfInterest.geometry;
 			        	var obstacleName = data.observations[0].featureOfInterest.name.value;

@@ -1,0 +1,42 @@
+{
+  "request": "InsertObservation",
+  "service": "SOS",
+  "version": "2.0.0",
+  "offering": "1",
+				  "observation": {    
+				    "type": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+				    "procedure": "DHT22_Sensor",
+				    "observedProperty": "Temperature_DHT22",
+				    "featureOfInterest": {
+				      "identifier": {
+				        "value": "1",  
+				        "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+				      },
+				      "name": [
+				        {
+                  "value": "R3-115", 
+				          "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+				        }
+				      ],
+				      "geometry": {
+				        "type": "Point",
+				        "coordinates": [
+				          0,  
+				          0  
+				        ],
+				        "crs": {
+				          "type": "name",
+				          "properties": {
+				            "name": "EPSG:4326"
+				          }
+				        }
+				      }
+				    },
+            "phenomenonTime": "1994-02-01T00:00:00+08:00", 
+				    "resultTime": "1994-02-01T00:00:00+08:00",  
+				    "result": {
+				      "uom": "Celsius",
+				      "value": 25 
+				    }
+				  }
+}

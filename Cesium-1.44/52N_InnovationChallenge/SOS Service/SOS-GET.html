@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+		<title> 
+    		SOS POST
+  		</title>
+  		  <style>
+ 		    table, td, tr, th{
+		      border:1px solid black;
+		    }
+		  </style>
+	</head>
+	<body>
+
+	<div>
+		<button onclick="POSTdata()">
+			POST
+		</button>				
+
+
+	</div>
+
+	<script>
+var response;
+
+		function POSTdata(){
+
+var getObservation = {
+  "request": "GetObservation",
+  "service": "SOS",
+  "version": "2.0.0",
+  "procedure": [
+    "DHT22_Sensor"
+  ],
+  "offering": [
+    "R3-118",
+    "R3-118-1"
+  ],
+  "observedProperty": [
+    "Temperature_DHT22"
+  ]
+};
+	
+var observation = {
+			  "request": "InsertObservation",
+			  "service": "SOS",
+			  "version": "2.0.0",
+			  "offering": 5,
+			  "observation": {    
+			    "type": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+			    "procedure": "DHT22_Sensor",
+			    "observedProperty": "Temperature_DHT22",
+			    "featureOfInterest": {
+			      "identifier": {
+			        "value": "R31111",
+			        "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+			      },
+			      "name": [
+			        {
+			          "value": "R31111",
+			          "codespace": "http://www.opengis.net/def/nil/OGC/0/unknown"
+			        }
+			      ],
+			      "geometry": {
+			        "type": "Point",
+			        "coordinates": [
+			          0,
+			          0
+			        ],
+			        "crs": {
+			          "type": "name",
+			          "properties": {
+			            "name": "EPSG:4326"
+			          }
+			        }
+			      }
+			    },
+			    "phenomenonTime": "2014-06-13T00:30:00+08:00",
+			    "resultTime": "2014-06-13T00:30:00+08:00",
+			    "result": {
+			      "uom": "Celsius",
+			      "value": 50
+			    }
+			  }
+			};
+
+				$.ajax({
+				    url:"http://localhost:8080/52n-sos-webapp/service",
+				    type: "POST",
+				    data: JSON.stringify(observation),
+				    contentType: "application/json",
+				    acception: "application/json",
+				    success: function(data){
+				        console.log(data);
+				    },
+				    error: function(response, status){
+				        console.log(response);
+				        console.log(status);
+				    }
+				});
+
+		}
+
+	</script>
+
+	</body>
+</html>
