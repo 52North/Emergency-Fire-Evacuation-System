@@ -183,3 +183,21 @@ var R32F = Cesium.GeoJsonDataSource.load('GeoJSON/R3-2F-Polygon.geojson');
 // }, false);
 
 
+
+// var one = Cesium.Cartesian3.fromDegrees(121.1873558, 24.9676200, 0.0);
+// var R31F = viewer.entities.add({
+//         name : 'R3 1F',
+//         position : one,
+//         model : {
+//             uri : 'R3-1F.gltf'
+//         }
+//     });
+
+// var two = Cesium.Cartesian3.fromDegrees(121.1873558, 24.9676200, 3.0);
+// var R32F = viewer.entities.add({
+//         name : 'R3 2F',
+//         position : two,
+//         model : {
+//             uri : 'R3-2F.gltf'
+//         }
+//     });

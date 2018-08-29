@@ -426,9 +426,29 @@ function ObstacleVisualize(positionOfObstacle){
 	            "rgba": [255, 0, 0, 255]
 	        },
 	        "outlineWidth" : 4,
-	        "pixelSize": 20
+	        "pixelSize": 50
 	    }
 	}];
+
+	// var Obstacle = [{
+ //    "id":"Headquarters",
+ //    "position":{
+ //      "cartesian":[
+ //        positionOfObstacle
+ //      ]
+ //    },
+ //    "billboard":{
+ //      "color":{
+ //        "rgba":[
+ //          0,255,255,255
+ //        ]
+ //      },
+ //      "horizontalOrigin":"CENTER",
+ //      "image":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEISURBVEhLvVXBDYQwDOuojHKj8LhBbpTbpBCEkZsmIVTXq1RVQGrHiWlLmTTqPiZBlyLgy/KSZQ5JSHDQ/mCYCsC8106kDU0AdwRnvYZArWRcAl0dcYJq1hWCb3hBrumbDAVMwAC82WoRvgMnVMDBnB0nYZFTbE6BBvdUGqVqCbjBIk3PyFFR/NU7EKzru+qZsau3ryPwwCRLKYOzutZuCL6fUmWeJGzNzL/RxAMrUmASSCkkAayk2IxPlwhAAYGpsiHQjbLccfdOY5gKkCXAMi7SscAwbQpAnKyctWyUZ6z8ja3OGMepwD8asz+9FnSvbhU8uVOHFIwQsI3/p0CfhuqCSQuxLqsN6mu8SS+N42MAAAAASUVORK5CYII=",
+ //      "scale":1.0,
+ //      "verticalOrigin":"CENTER"
+ //    }
+ //  }]
 
 	var dataSourcePromise = Cesium.CzmlDataSource.load(Obstacle);
 	viewer.dataSources.add(dataSourcePromise);
