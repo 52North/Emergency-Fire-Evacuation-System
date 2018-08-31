@@ -1,6 +1,7 @@
 var viewer = new Cesium.Viewer('cesiumContainer', {
     timeline: false, //時間線不顯示
-    animation: false //動畫控制不顯示 
+    animation: false, //動畫控制不顯示
+    vrButton: true
 });
 
 var scene = viewer.scene;
