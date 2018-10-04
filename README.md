@@ -12,10 +12,10 @@ This project was developed in the course of 52°North's Student Innovation Chall
 </ul>
 
 <h2>Indoor route network</h2>
-  ```{
+  {
     "nodeA":{"nodeB":1,"nodeC":2},
     "nodeD":{"nodeE":1},
     .
     .
     .
-  }```
+  }
