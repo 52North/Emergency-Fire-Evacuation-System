@@ -8,6 +8,6 @@ This project was developed in the course of 52°North's Student Innovation Chall
 <h2>Installation</h2><br>
 
 <ul>
-<li><a href="https://github.com/52north/SOS">SOS</a> </li>
-<li>Magic</li>
+<li><a href="https://github.com/52north/SOS">Sensor Observation Service</a> </li>
+<li><a href="https://github.com/AnalyticalGraphicsInc/cesium">Cesium</a></li>
 </ul>
