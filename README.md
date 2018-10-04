@@ -10,3 +10,12 @@ This project was developed in the course of 52°North's Student Innovation Chall
 <li>Sensor Observation Service(<a href="https://github.com/52north/SOS">SOS</a>)</li>
 <li><a href="https://github.com/AnalyticalGraphicsInc/cesium">Cesium</a></li>
 </ul>
+
+<h2>Indoor route network</h2>
+  {<br>
+    "nodeA":{"nodeB":1,"nodeC":2},<br>
+    "nodeD":{"nodeE":1},<br>
+    .<br>
+    .<br>
+    .<br>
+  }<br>
