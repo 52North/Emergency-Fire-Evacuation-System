@@ -1,20 +1,21 @@
 # Emergency Fire Evacuation System
 A Real-time Intelligent Three Dimensional Fire Evacuation Guidance System Based on Sensor Web Service and 3D City Models Open Standards
 
-<h2> Introduction </h2>
-The rapid economic development and urbanization have led to the intensive use of land in urban areas. In order to accommodate more people and space, the interior of  buildings become more complex.   The high capacity and centralized nature affect the design of escape and rescue routes, which could be more complicated or effective. In this situation, the issue of fire disaster prevention and management, including alarm notification and evacuation route simulation, is critical. . 
-
-As evacuation maps are commonly displayed in a two-dimensional format, people may find it difficult to plan an ideal evacuation route while it is in emergency. In recent years, applications of the sensor web have been used to improve the capability of environment observation. The users can monitor the environment immediately and obtain the dynamical phenomenon by sensor web. For building model, using GeoJSON permits the display of a site in three dimensions, which helps building occupants to visualize and immediately understand the status of a fire or other emergency. By using nodes and edges, JSON forms the network for interior space navigation in three dimensions. Effective fire disaster prevention methods integrate sensing technology, analysis, judgment, decision, and action functions. Therefore, the key aspects of this project include (1) The fire escape perspective, which provides people with critical and accurate information and identifies the most appropriate routes to evacuate; and (2) Integration System, which is to integrate and share the information about fire and rescue attempt by using a sensor web integration platform. Achieving these aspects is critical to resolve the current communication problems that are inhibiting effective information transmission between firefighters and persons in danger.
-
-
-<h2> Objective </h2>
-This project will apply GeoJSON and indoor route network with JSON format in a 3D model for the disaster prevention that integrates information on fire-prevention facilities, wireless sensors, evacuation route analysis and disaster-prevention functions. Creating a framework for an intelligent fire and disaster-prevention system by using the integration GeoJSON and route network will work as follows. When the wireless sensors detect high temperature or smoke levels, the system will alarm, and then monitor the fire-outbreak locations and the evacuation routes, which are calculated by the operations in the integration 3D model. The system will record the data about this accident on sensor web database for future review and analysis. The proposed integration system is designed to enhance the timeliness and safety of evacuation actions.
-
-<h2> Expected Contribution </h2>
-People who are trapped in the fire require explicit real-time, information from the scene of a fire in order to make rapid and correct decisions for evacuation. For instance, the information provided on sensor web about the building structure may help  people trapped in the fire recognize the distance between the point of origin and their location/. Moreover, the indoor route network provides the rescue/escape plans after calculation, effectively reducing uncertainty and the time to response to the disaster. The use of this project for fire disaster prevention management focuses on providing 3D visual effect and connecting building elements in order to support real-time evacuation information inquiries, simulations and records. In this system, different device, data model and commination protocol cause the heterogeneity problems. Based on the concept of open standards, this project focuses on the interoperability of data integration. In this project, the integration of different domain: sensor web and 3D city model, the interoperability can improve by following the open standards.<br><br><br>
-
-
-
-
 The main code is the file called 52N_InnovationChallenge inside Cesium-1.44.<br>
-The weekly report is in Wiki of the repository.
+This project was developed in the course of 52°North's Student Innovation Challenge 2018 against the SOS implementation by 52°North.<br>
+
+
+<h2>Installation</h2>
+<ul>
+<li>Sensor Observation Service(<a href="https://github.com/52north/SOS">SOS</a>)</li>
+<li><a href="https://github.com/AnalyticalGraphicsInc/cesium">Cesium</a></li>
+</ul>
+
+<h2>Indoor route network</h2>
+  {
+    "nodeA":{"nodeB":1,"nodeC":2},
+    "nodeD":{"nodeE":1},
+    .
+    .
+    .
+  }
