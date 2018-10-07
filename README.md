@@ -7,7 +7,7 @@ This project was developed in the course of 52°North's Student Innovation Chall
 ## Installation
 
 - Sensor Observation Service ([SOS](https://github.com/52north/SOS))
-- [Cesium](https://github.com/AnalyticalGraphicsInc/cesium)
+- [Cesium](https://github.com/AnalyticalGraphicsInc/cesium) ([official website](https://cesiumjs.org/downloads/))
 
 ## Indoor route network
 
@@ -51,3 +51,7 @@ Example :
 }
 ```
 
+So that we can get the route planning by the system routing module.
+From node1 to node2 to node3 ...
+Based on the result of the node name, we can get the node location by node's GeoJSON file.
+Then using Cesium [`RouteVisualize()`] to visualize the route.
