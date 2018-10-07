@@ -51,10 +51,8 @@ Example :
 }
 ```
 
-So that we can get the route planning by the system routing module.
+So that we can get the route planning by the system routing module. *(From node1 to node2 to node3 ...)*
 
-From node1 to node2 to node3 ...
+Based on the result of the node name, we can get the node location by node's GeoJSON file. [`findCoordinates(results)`]
 
-Based on the result of the node name, we can get the node location by node's GeoJSON file.
-
-Then using Cesium [`RouteVisualize()`] to visualize the route.
+Then using Cesium [`RouteVisualize() in Routing.js`] to visualize the route.
