@@ -8,7 +8,7 @@ This project was developed in the course of 52°North's Student Innovation Chall
 
 This project is based on SOS and Cesium.
 
-- Sensor Observation Service ([SOS](https://github.com/52north/SOS))
+- Sensor Observation Service ([SOS](https://github.com/52north/SOS)) [[installation](https://wiki.52north.org/SensorWeb/SensorObservationServiceIVDocumentation#Installation)]
 - [Cesium](https://github.com/AnalyticalGraphicsInc/cesium) ([official website](https://cesiumjs.org/downloads/))
 
 ### Configuration
@@ -91,3 +91,10 @@ If the observation result analyze by warning module is dangerous area, the node 
 
 
 ![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/Integration%20with%20SOS.JPG?raw=true)
+
+
+
+How to insert sensor and observation on SOS? ([here](https://wiki.52north.org/SensorWeb/SensorObservationServiceIVDocumentation#Installation))
+
+In SOS Service file , there are some example for insert sensor *(DHT22, EN54-7)* and observations.
+
