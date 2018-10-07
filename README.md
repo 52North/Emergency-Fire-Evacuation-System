@@ -1,21 +1,32 @@
-# Emergency Fire Evacuation System
+# **Emergency Fire Evacuation System**
+
 A Real-time Intelligent Three Dimensional Fire Evacuation Guidance System Based on Sensor Web Service and 3D City Models Open Standards
 
-The main code is the file called 52N_InnovationChallenge inside Cesium-1.44.<br>
-This project was developed in the course of 52°North's Student Innovation Challenge 2018 against the SOS implementation by 52°North.<br>
+This project was developed in the course of 52°North's Student Innovation Challenge 2018 against the SOS implementation by 52°North.
 
+## Installation
 
-<h2>Installation</h2>
-<ul>
-<li>Sensor Observation Service(<a href="https://github.com/52north/SOS">SOS</a>)</li>
-<li><a href="https://github.com/AnalyticalGraphicsInc/cesium">Cesium</a></li>
-</ul>
+- Sensor Observation Service ([SOS](https://github.com/52north/SOS))
+- [Cesium](https://github.com/AnalyticalGraphicsInc/cesium)
 
-<h2>Indoor route network</h2>
-  {
-    "nodeA":{"nodeB":1,"nodeC":2},
-    "nodeD":{"nodeE":1},
-    .
-    .
-    .
-  }
+## Indoor route network
+
+Format: JSON
+
+Example:
+
+```javascript
+{
+
+​	"nodeA": { "nodeB" : 1, "nodeC" : 2},
+
+​	"nodeD": { "nodeE : 1"},
+​	.
+
+​	.
+
+​	.
+
+}
+```
+
