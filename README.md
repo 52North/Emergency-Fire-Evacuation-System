@@ -15,12 +15,14 @@ Format: JSON
 
 Example:
 
+![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/NodeExample.JPG?raw=true)
+
 ```javascript
 {
 
 ​	"nodeA": { "nodeB" : 1, "nodeC" : 2},
 
-​	"nodeD": { "nodeE : 1"},
+​	"nodeD": { "nodeE" : 1},
 ​	.
 
 ​	.
