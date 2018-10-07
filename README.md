@@ -13,7 +13,7 @@ This project is based on SOS and Cesium.
 
 ### Configuration
 
-After installation, the SOS service should be replaced to your own service url.
+**After installation, the SOS service should be replaced to your own service url.**
 
 The *52N_InnovationChallenge* file should be inside Cesium file, same with the server.js.
 
@@ -80,7 +80,7 @@ Then using Cesium [`RouteVisualize() in Routing.js`] to visualize the route.
 
 
 
-## Integrate with SOS
+## Intergradation with SOS
 
 Based on the **feature of interest** of the observation. 
 
