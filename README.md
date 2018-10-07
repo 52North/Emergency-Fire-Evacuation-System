@@ -19,16 +19,12 @@ Example:
 
 ```javascript
 {
-
 ​	"nodeA": { "nodeB" : 1, "nodeC" : 2},
 ​	"nodeB": { "nodeA" : 1, "nodeE" : 2},
-    "nodeC": { "nodeD" : 1},
+​	"nodeC": { "nodeD" : 1},
 ​	.
-
 ​	.
-
 ​	.
-
 }
 ```
 
