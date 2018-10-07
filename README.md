@@ -82,4 +82,12 @@ Then using Cesium [`RouteVisualize() in Routing.js`] to visualize the route.
 
 ## Integrate with SOS
 
-Based on the 
+Based on the **feature of interest** of the observation. 
+
+We can get the corresponding node with the observation.
+
+If the observation result analyze by warning module is dangerous area, the node will be blocked.
+
+
+
+![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/Integration%20with%20SOS.JPG?raw=true)
