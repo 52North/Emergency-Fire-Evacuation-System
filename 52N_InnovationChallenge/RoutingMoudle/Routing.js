@@ -10,7 +10,7 @@ const lowestCostNode = (costs, processed) => {
   }, null);
 };
 
-// //加入障礙物
+// //Add obstacle
 // function AddObstacle(){
 //   var obstacle = document.getElementById("obstacle").value;
 //   R3route[obstacle] = {};
@@ -18,7 +18,7 @@ const lowestCostNode = (costs, processed) => {
 // }
 
 
-//規畫路徑
+//Route planning
 function routing(){
   GetSensorsObservation();
   setTimeout(function(){
@@ -87,7 +87,7 @@ const dijkstra = (graph,start) => {
 };
 
 
-//判斷樓梯是否通行
+//judgment the stair can pass or not
 function judgment(results){
     if(results.distance == "Infinity"){
     console.log("Secnond option")
@@ -98,7 +98,7 @@ function judgment(results){
 };
 
 
-//如果樓梯無法通行升降梯
+//If all stair is blocked
 function StairsBlock(start){
   // var EscapeSling = {
   // "R3-231":{"Level-2-Left-Corridor-A":1},
@@ -242,15 +242,12 @@ function StairsBlock(start){
 
 
 
-//為了findResultNode所做的
 var search;
 
-//用來找Results裡面各的node對應的feature
 function findResultNode(features){
   return features.properties.Name === search;
 };
 
-//找到Result每個Node對應feature的coordinate
 function findCoordinates(results){
   var resultsWithCoordinate = [];
   for(var i=0; i<results.path.length-1; i++){
@@ -258,13 +255,12 @@ function findCoordinates(results){
     var NodeCoordinates = R3_point.features.find(findResultNode);
     resultsWithCoordinate[i] = NodeCoordinates.geometry.coordinates;
   }
-//resultsWithCoordinate 是含有每個Node座標的陣列
   // console.log(resultsWithCoordinate);
   formatForCesiumPolyline(resultsWithCoordinate)
 };
 
 
-//將得到的座標轉換成CesiumPolyline的格式
+//Tarinferom the location to CesiumPolyline
 function formatForCesiumPolyline(resultsWithCoordinate){
   var newFormat = [];
   for(var i=0; i<resultsWithCoordinate.length;i++){
@@ -276,7 +272,7 @@ function formatForCesiumPolyline(resultsWithCoordinate){
   RouteVisualize(newFormat);
 }
 
-//在Cesium中畫出路線
+//Visulize the route in Cesium
 function RouteVisualize(newFormat){
   viewer.entities.removeAll();
   var escapeRoute = viewer.entities.add({

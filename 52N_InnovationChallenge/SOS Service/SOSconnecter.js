@@ -92,11 +92,11 @@ function insertObservation(offeringID,featureOfInterest,geometry,value,sensorInf
 				        }
 				      }
 				    },
-				    "phenomenonTime": time, //一定要是都是兩位數的時間格式(yyyy-mm-ddThh:mm:ss+08:00)
-				    "resultTime": time,  //一定要是都是兩位數的時間格式(yyyy-mm-ddThh:mm:ss+08:00)
+				    "phenomenonTime": time, //(yyyy-mm-ddThh:mm:ss+08:00)
+				    "resultTime": time,  //(yyyy-mm-ddThh:mm:ss+08:00)
 				    "result": {
 				      "uom": sensorInformation.uom.toString(),
-				      "value": parseInt(value) //一定要是數字，不能為字串
+				      "value": parseInt(value)
 				    }
 				  }
 				};

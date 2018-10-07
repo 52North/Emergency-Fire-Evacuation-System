@@ -1,6 +1,6 @@
 var viewer = new Cesium.Viewer('cesiumContainer', {
-    timeline: false, //時間線不顯示
-    animation: false, //動畫控制不顯示
+    timeline: false, 
+    animation: false, 
     vrButton: true
 });
 
@@ -116,89 +116,3 @@ var R32F = Cesium.GeoJsonDataSource.load('GeoJSON/R3-2F-Polygon.geojson');
         //Display any errrors encountered while loading.
         window.alert(error);
     });
-
-
-
-// var checkbox = document.getElementById('R32Fcheck');
-// checkbox.addEventListener('change', function() {
-//     // Checkbox state changed.
-//     if (checkbox.checked) {
-//         // Show if not shown.
-//         if (!viewer.dataSources.contains(R32F)) {
-//             viewer.dataSources.add(R32F);
-//             viewer.zoomTo(R32F);
-//         }
-//     } else {
-//         // Hide if currently shown.
-//         if (viewer.dataSources.contains(R32F)) {
-//             viewer.dataSources.remove(R32F);
-//         }
-//     }
-// }, false);
-
-// checkbox.addEventListener('change', function(){
-// 	if (!checkbox.checked){
-// 		if (!viewer.dataSources.contains(R32F)){
-// 			console.log("fail");
-// 		}else{
-// 			viewer.dataSources.remove(R32F);
-// 			console.log("remove");
-// 		}
-// 	}else{
-// 		if (!viewer.dataSources.contains(R32F)){
-// 			viewer.dataSources.add(R32F);
-// 		}
-// 	}
-// });
-
-
-
-
-
-
-
-// var checkbox1F = document.getElementById('R31Fcheck');
-// checkbox1F.addEventListener('change', function() {
-//     // Checkbox state changed.
-//     if (checkbox1F.checked) {
-//         // Show if not shown.
-//         R31F.show = true;
-//         }
-//      else {
-//         // Hide if currently shown.
-//         R31F.show = false;
-//     }
-// }, false);
-
-// var checkbox2F = document.getElementById('R32Fcheck');
-// checkbox2F.addEventListener('change', function() {
-//     // Checkbox state changed.
-//     if (checkbox2F.checked) {
-//         // Show if not shown.
-//         R32F.show = true;
-//         }
-//      else {
-//         // Hide if currently shown.
-//         R32F.show = false;
-//     }
-// }, false);
-
-
-
-// var one = Cesium.Cartesian3.fromDegrees(121.1873558, 24.9676200, 0.0);
-// var R31F = viewer.entities.add({
-//         name : 'R3 1F',
-//         position : one,
-//         model : {
-//             uri : 'R3-1F.gltf'
-//         }
-//     });
-
-// var two = Cesium.Cartesian3.fromDegrees(121.1873558, 24.9676200, 3.0);
-// var R32F = viewer.entities.add({
-//         name : 'R3 2F',
-//         position : two,
-//         model : {
-//             uri : 'R3-2F.gltf'
-//         }
-//     });
