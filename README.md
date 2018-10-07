@@ -13,7 +13,9 @@ This project was developed in the course of 52°North's Student Innovation Chall
 
 Format: JSON
 
-Example:
+**"Node name" : *"weight*"**
+
+#### Example:
 
 ![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/NodeExample.JPG?raw=true)
 
@@ -21,10 +23,31 @@ Example:
 {
 ​	"nodeA": { "nodeB" : 1, "nodeC" : 2},
 ​	"nodeB": { "nodeA" : 1, "nodeE" : 2},
-​	"nodeC": { "nodeD" : 1},
+​	"nodeC": { "nodeA" : 2, "nodeD" : 1},
 ​	.
 ​	.
 ​	.
+}
+```
+
+
+
+## Result after routing
+
+Example :
+
+```javascript
+{
+​	"distance" : 15,
+​	"path": [
+​	"node 1",
+​	"node 2",
+​	"node 3",
+​	.
+​	.
+​	.
+​	"finish"
+​	]
 }
 ```
 
