@@ -32,7 +32,7 @@ This project was developed in the course of 52°North's Student Innovation Chall
 
 
 
-## Result after routing [`dijkstra()`]
+### Result of routing [`dijkstra()`]
 
 Example :
 
@@ -56,3 +56,9 @@ So that we can get the route planning by the system routing module. *(From node1
 Based on the result of the node name, we can get the node location by node's GeoJSON file. [`findCoordinates(results)`]
 
 Then using Cesium [`RouteVisualize() in Routing.js`] to visualize the route.
+
+
+
+### Integration with SOS
+
+Based on the 
