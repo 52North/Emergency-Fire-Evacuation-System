@@ -80,7 +80,7 @@ Then using Cesium [`RouteVisualize() in Routing.js`] to visualize the route.
 
 
 
-## Intergradation with SOS
+## Integration with SOS
 
 Based on the **feature of interest** of the observation. 
 
