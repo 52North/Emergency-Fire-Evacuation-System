@@ -32,7 +32,7 @@ This project was developed in the course of 52°North's Student Innovation Chall
 
 
 
-## Result after routing
+## Result after routing [`dijkstra()`]
 
 Example :
 
