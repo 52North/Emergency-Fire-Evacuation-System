@@ -11,9 +11,9 @@ This project was developed in the course of 52°North's Student Innovation Chall
 
 ## Indoor route network
 
-Format: JSON
+#### Format: JSON
 
-**"Node name" : *"weight*"**
+#### **"Node name" : *"weight*"**
 
 #### Example:
 
