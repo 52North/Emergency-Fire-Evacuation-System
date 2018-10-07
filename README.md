@@ -2,7 +2,7 @@
 
 A Real-time Intelligent Three Dimensional Fire Evacuation Guidance System Based on Sensor Web Service and 3D City Models Open Standards
 
-This project was developed in the course of 52°North's Student Innovation Challenge 2018 against the SOS implementation by 52°North.
+This project was developed in the course of 52°North's Student Innovation Challenge 2018 against the SOS implementation by 52°North. ([Slides](https://52north.org/wp-content/uploads/2018/09/GSW_Real-time-Fire-Management-System-Based-on-Sensor-Web-Services.pdf))
 
 ## Installation & Configuration
 
@@ -102,4 +102,4 @@ In SOS Service file , there are some example for insert sensor *(DHT22, EN54-7)*
 
 ## License
 
-Taiwan, National Central University - Yao-Hsin Chiang
+National Central University, Taiwan - Yao-Hsin Chiang
