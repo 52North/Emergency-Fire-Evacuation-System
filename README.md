@@ -98,3 +98,8 @@ How to insert sensor and observation on SOS? ([here](https://wiki.52north.org/Se
 
 In SOS Service file , there are some example for insert sensor *(DHT22, EN54-7)* and observations.
 
+
+
+## License
+
+Taiwan, National Central University - Yao-Hsin Chiang
