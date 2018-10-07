@@ -21,8 +21,8 @@ Example:
 {
 
 ​	"nodeA": { "nodeB" : 1, "nodeC" : 2},
-
-​	"nodeD": { "nodeE" : 1},
+​	"nodeB": { "nodeA" : 1, "nodeE" : 2},
+    "nodeC": { "nodeD" : 1},
 ​	.
 
 ​	.
