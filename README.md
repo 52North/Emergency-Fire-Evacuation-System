@@ -4,10 +4,31 @@ A Real-time Intelligent Three Dimensional Fire Evacuation Guidance System Based 
 
 This project was developed in the course of 52°North's Student Innovation Challenge 2018 against the SOS implementation by 52°North.
 
-## Installation
+## Installation & Configuration
+
+This project is based on SOS and Cesium.
 
 - Sensor Observation Service ([SOS](https://github.com/52north/SOS))
 - [Cesium](https://github.com/AnalyticalGraphicsInc/cesium) ([official website](https://cesiumjs.org/downloads/))
+
+### Configuration
+
+After installation, the SOS service should be replaced to your own service url.
+
+The *52N_InnovationChallenge* file should be inside Cesium file, same with the server.js.
+
+![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/Cesium%20Configuration.JPG?raw=true)
+
+SOS service : `http://localhost:8080/52n-sos/service`
+
+**Start Cesium by node.js**
+
+```
+cd D:\Research\Cesium\Cesium-1.44
+node server.js
+```
+
+In the cmd interface, you can get the url to start.
 
 ## Indoor route network
 
@@ -59,6 +80,6 @@ Then using Cesium [`RouteVisualize() in Routing.js`] to visualize the route.
 
 
 
-### Integration with SOS
+## Integrate with SOS
 
 Based on the 
