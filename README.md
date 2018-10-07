@@ -13,7 +13,7 @@ This project was developed in the course of 52°North's Student Innovation Chall
 
 Format: JSON
 
-**"Node name" : *"weight*"**
+`**"Node name" : *"weight*"**`
 
 #### Example:
 
@@ -51,7 +51,10 @@ Example :
 }
 ```
 
-So that we can get the route planning by the system routing module. <br>
-From node1 to node2 to node3 ... <br>
-Based on the result of the node name, we can get the node location by node's GeoJSON file. <br>
-Then using Cesium [`RouteVisualize()`] to visualize the route.<br>
+So that we can get the route planning by the system routing module.
+
+From node1 to node2 to node3 ...
+
+Based on the result of the node name, we can get the node location by node's GeoJSON file.
+
+Then using Cesium [`RouteVisualize()`] to visualize the route.
