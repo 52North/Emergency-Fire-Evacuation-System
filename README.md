@@ -7,26 +7,58 @@ This project was developed in the course of 52°North's Student Innovation Chall
 ## Installation
 
 - Sensor Observation Service ([SOS](https://github.com/52north/SOS))
-- [Cesium](https://github.com/AnalyticalGraphicsInc/cesium)
+- [Cesium](https://github.com/AnalyticalGraphicsInc/cesium) ([official website](https://cesiumjs.org/downloads/))
 
 ## Indoor route network
 
-Format: JSON
+#### Format: JSON
 
-Example:
+#### **"Node name" : *"weight*"**
+
+#### Example:
+
+![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/NodeExample.JPG?raw=true)
 
 ```javascript
 {
-
 ​	"nodeA": { "nodeB" : 1, "nodeC" : 2},
-
-​	"nodeD": { "nodeE : 1"},
+​	"nodeB": { "nodeA" : 1, "nodeE" : 2},
+​	"nodeC": { "nodeA" : 2, "nodeD" : 1},
 ​	.
-
 ​	.
-
 ​	.
-
 }
 ```
 
+
+
+### Result of routing [`dijkstra()`]
+
+Example :
+
+```javascript
+{
+​	"distance" : 15,
+​	"path": [
+​	"node 1",
+​	"node 2",
+​	"node 3",
+​	.
+​	.
+​	.
+​	"finish"
+​	]
+}
+```
+
+So that we can get the route planning by the system routing module. *(From node1 to node2 to node3 ...)*
+
+Based on the result of the node name, we can get the node location by node's GeoJSON file. [`findCoordinates(results)`]
+
+Then using Cesium [`RouteVisualize() in Routing.js`] to visualize the route.
+
+
+
+### Integration with SOS
+
+Based on the 
