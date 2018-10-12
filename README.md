@@ -15,7 +15,7 @@ This project is based on SOS and Cesium.
 
 **After installation, the SOS service should be replaced to your own service url.**
 
-The *52N_InnovationChallenge* file should be inside Cesium file, same with the server.js.
+The *52N_InnovationChallenge* file should be inside Cesium folder, same with the server.js.
 
 ![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/Cesium%20Configuration.JPG?raw=true)
 
