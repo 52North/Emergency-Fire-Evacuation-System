@@ -32,22 +32,23 @@ This project is based on SOS and Cesium.
   `$ node server.js`<br>
   Finally, launch a browser and navigate to `http://localhost:8080/{path to the html}`
 
-### Configuration
-
 **After installation, the SOS service should be replaced to your own service url.**
 
 In this implementation, the SOS service is  `http://localhost:8080/52n-sos/service`
 You have to replace the URL to your own service URL.
 
-***The 52N_InnovationChallenge file should be copy and put inside Cesium floder, same with the server.js.***
+***The 52N_InnovationChallenge file should be copy and put inside Cesium floder, same with the server.js.*** <br>
+*(After finish the installation of Cesium, there is a server.js file.)*
+
+
 
 ![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/Cesium%20Configuration.JPG?raw=true)
 
+### Configuration
 
+##### **Start Cesium by node.js**
 
-#### **Start Cesium by node.js**
-
-After you install the Cesium, there is a server.js in the Cesium file.
+After you install the Cesium, there is a `server.js` in the Cesium file.
 Use node.js to start the server. 
 
 ```
@@ -69,12 +70,12 @@ In the cmd interface, you can get the url to start.
 
 ```javascript
 {
-​	"nodeA": { "nodeB" : 1, "nodeC" : 2},
-​	"nodeB": { "nodeA" : 1, "nodeE" : 2},
-​	"nodeC": { "nodeA" : 2, "nodeD" : 1},
-​	.
-​	.
-​	"nodeE": { "finish" : 0}
+	"nodeA": { "nodeB" : 1, "nodeC" : 2},
+	"nodeB": { "nodeA" : 1, "nodeE" : 2},
+	"nodeC": { "nodeA" : 2, "nodeD" : 1},
+	.
+	.
+	"nodeE": { "finish" : 0}
 }
 ```
 
@@ -99,16 +100,16 @@ Example :
 
 ```javascript
 {
-​	"distance" : 15,
-​	"path": [
-​	"node 1",
-​	"node 2",
-​	"node 3",
-​	.
-​	.
-​	.
-​	"finish"
-​	]
+	"distance" : 15,
+	"path": [
+	"node 1",
+	"node 2",
+	"node 3",
+	.
+	.
+	.
+	"finish"
+	]
 }
 ```
 
