@@ -20,6 +20,8 @@ This project will apply GeoJSON and indoor route network with JSON format in a 3
 
 ## Installation & Configuration
 
+### Installation
+
 This project is based on SOS and Cesium.
 
 - Sensor Observation Service ([SOS Github](https://github.com/52north/SOS)) [[installation](https://wiki.52north.org/SensorWeb/SensorObservationServiceIVDocumentation#Installation)]
@@ -30,23 +32,27 @@ This project is based on SOS and Cesium.
   `$ npm install`<br>
   Start the web server by executing the command:<br>
   `$ node server.js`<br>
-  Finally, launch a browser and navigate to `http://localhost:8080/{path to the html}`
-
-**After installation, the SOS service should be replaced to your own service url.**
-
-In this implementation, the SOS service is  `http://localhost:8080/52n-sos/service`
-You have to replace the URL to your own service URL.
-
-***The 52N_InnovationChallenge file should be copy and put inside Cesium floder, same with the server.js.*** <br>
-*(After finish the installation of Cesium, there is a server.js file.)*
-
-
-
-![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/Cesium%20Configuration.JPG?raw=true)
+  Finally, launch a browser and navigate to `http://localhost:8080/{path to the html}` <br>
 
 ### Configuration
 
-##### **Start Cesium by node.js**
+**After installation, the SOS service should be replaced to your own service url.** <br>
+
+In this implementation, the SOS service is  `http://localhost:8080/52n-sos/service` <br>
+In the SOS Service folder, there is a `SOSconnecter.js` file.<br>
+
+You have to replace the URL to your own service URL. <br>
+
+The url of ajax for  `insertObservation()`, `getLastestObservation()` and `getSmokeObservations()` have to be replaced. <br>
+
+- `inserObservation()` 
+  In order to make the demonstration, insert the new observations for default value when the system start or refresh.
+- `getLastestObservation()`, `getSmokeObservations()`
+  Getting the lastest observations to check is over than the warning value or not.
+
+
+
+## Start Cesium by node.js
 
 After you install the Cesium, there is a `server.js` in the Cesium file.
 Use node.js to start the server. 
@@ -57,6 +63,17 @@ node server.js
 ```
 
 In the cmd interface, you can get the url to start.
+
+***The 52N_InnovationChallenge file should be copy and put inside Cesium floder, same with the server.js.*** <br>
+*(After finish the installation of Cesium, there is a server.js file.)*
+
+
+
+![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/Cesium%20Configuration.JPG?raw=true)
+
+In this implementation, the url will be  `http:localhost:8080/52N_InnovationChallenge/index.html`
+
+In this example, 8080 is the number of the port. You can replace it to yours.
 
 ## Indoor route network
 
