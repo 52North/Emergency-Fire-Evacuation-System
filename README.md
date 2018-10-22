@@ -45,9 +45,9 @@ You have to replace the URL to your own service URL. <br>
 
 The url of ajax for  `insertObservation()`, `getLastestObservation()` and `getSmokeObservations()` have to be replaced. <br>
 
-- `inserObservation()` 
+- `inserObservation()`  <br>
   In order to make the demonstration, insert the new observations for default value when the system start or refresh.
-- `getLastestObservation()`, `getSmokeObservations()`
+- `getLastestObservation()`, `getSmokeObservations()`  <br>
   Getting the lastest observations to check is over than the warning value or not.
 
 
