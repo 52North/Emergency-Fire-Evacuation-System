@@ -2,7 +2,7 @@
 //Simulate the default observations
 var search;
 
-//The url of the SOS service
+//The url of the SOS service (The url for ajax)
 var SOSurl = "http://localhost:8080/52n-sos/service";
 
 //when user open the page, insert the default observation result value to each offering 
