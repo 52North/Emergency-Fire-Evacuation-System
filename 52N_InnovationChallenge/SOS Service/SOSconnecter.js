@@ -2,6 +2,9 @@
 //Simulate the default observations
 var search;
 
+//The url of the SOS service
+var SOSurl = "http://localhost:8080/52n-sos/service";
+
 //when user open the page, insert the default observation result value to each offering 
 function updateObservations(){
 	for(var i=1;i<R3_point.features.length+1;i++){
@@ -145,7 +148,7 @@ function insertObservation(offeringID,featureOfInterest,geometry,value,sensorInf
 // }
 
 		$.ajax({
-		    url:"http://localhost:8080/52n-sos/service",
+		    url:SOSurl,
 		    type: "POST",
 		    data: JSON.stringify(defaultObservation),
 		    contentType: "application/json",
@@ -294,7 +297,7 @@ var getLastestObservation = {
 }
 
 			$.ajax({
-			    url:"http://localhost:8080/52n-sos/service",
+			    url:SOSurl,
 			    type: "POST",
 			    data: JSON.stringify(getLastestObservation),
 			    contentType: "application/json",
@@ -361,7 +364,7 @@ var getLastestObservation = {
 }
 
 			$.ajax({
-			    url:"http://localhost:8080/52n-sos/service",
+			    url:SOSurl,
 			    type: "POST",
 			    data: JSON.stringify(getLastestObservation),
 			    contentType: "application/json",
