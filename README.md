@@ -33,14 +33,6 @@ This project is based on SOS and Cesium.
   Start the web server by executing the command:<br>
   `$ node server.js`<br>
   Finally, launch a browser and navigate to `http://localhost:8080/{path to the html}` <br>
-  
-***The 52N_InnovationChallenge file should be copy and put inside Cesium floder, same with the server.js.*** <br>
-*(After finish the installation of Cesium, there is a server.js file.)*
-
-
-
-![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/Cesium%20Configuration.JPG?raw=true)
-
 
 ### Configuration
 
@@ -49,9 +41,11 @@ This project is based on SOS and Cesium.
 In this implementation, the SOS service is  `http://localhost:8080/52n-sos/service` <br>
 In the SOS Service folder, there is a `SOSconnecter.js` file.<br>
 
+There is a string variable `(SOSurl)` in the beginning of the SOSconnecter.js.
+
 You have to replace the URL to your own service URL. <br>
 
-The url of ajax for  `insertObservation()`, `getLastestObservation()` and `getSmokeObservations()` have to be replaced. <br>
+The url is for the queries of ajax with `insertObservation()`, `getLastestObservation()` and `getSmokeObservations()`. <br>
 
 - `inserObservation()`  <br>
   In order to make the demonstration, insert the new observations for default value when the system start or refresh.
@@ -71,6 +65,14 @@ node server.js
 ```
 
 In the cmd interface, you can get the url to start.
+
+***The 52N_InnovationChallenge file should be copy and put inside Cesium floder, same with the server.js.*** <br>
+*(After finish the installation of Cesium, there is a server.js file.)*
+
+
+
+![](https://github.com/chsimon4/Emergency-Fire-Evacuation-System/blob/master/52N_InnovationChallenge/Cesium%20Configuration.JPG?raw=true)
+
 In this implementation, the url will be  `http:localhost:8080/52N_InnovationChallenge/index.html`
 
 In this example, 8080 is the number of the port. You can replace it to yours.
